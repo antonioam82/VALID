@@ -5,6 +5,15 @@ def OKI(n):
         n=OKI(input("Caracter no valido: "))
     return n
 
+def direc():
+    while True:
+        nueva_ruta=input("Introduzca ruta: ")
+        if os.path.isdir(nueva_ruta):
+            os.chdir(nueva_ruta)
+            break
+        else:
+            print("RUTA NO VALIDA")
+
 def OKP(n): #ESTA FUNCION ES COMO "OK" SOLO QUE ADMITE EL NÚMERO "pi".
     from math import pi
     if n!=("pi"):
@@ -36,10 +45,6 @@ def n_val(n,tn): #FUNCION QUE INTEGRA "OKI" Y "OK".
             n=n_val(input("Caracter no valido: "),"f")
     return n
 
-#EJEMPLO
-#nu=n_val(input("Numero: "),"i")
-#print(nu)
-
 def ny(c):
     while c!=("n") and c!=("y"):
         print(chr(7));c=input("Just enter \'y\' for \'no\' or \'y\' for \'yes\': ")
@@ -51,7 +56,7 @@ def ns(c):
         print(chr(7));c=input("Escribe solo \'n\' o \'s\' según su opción: ")
     return(c)
 
-def ER(n):#SE PUEDE RESUMIR/MEJORAR
+def ER(n):
     strn=str(n)
     lstrn=len(strn)
     if (".") in strn or ("-") in strn:
@@ -99,6 +104,8 @@ def binn(num):
     sf=stri+j
     return sf
 
+
+
 def oper(ress):#SE PUEDE USAR EN "calculadora_cadena.py"
     operr=[]
     for i in (ress):
@@ -130,3 +137,5 @@ def clearer():
             os.system("clear")
     else:
         pass
+
+
