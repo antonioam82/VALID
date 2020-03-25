@@ -5,7 +5,27 @@ def OKI(n):
         n=OKI(input("Caracter no valido: "))
     return n
 
+def enum(opcions):
+    global fail
+    for i,opcion in enumerate(opcions):
+        print(i,opcion)
+    eleccion = OKI(input("Introduzca número correspondiente a su opción: "))
+    while eleccion > (len(opcions)-1):
+        eleccion = OKI(input("Introduzca indice válido correspondiente a su opción: "))
+    assert eleccion in range(len(opcions))
+    tex_elec = opcions[eleccion]
+    fail = False
+    return tex_elec
+
+def wind(image):
+    import cv2
+    cv2.namedWindow("image",cv2.WINDOW_NORMAL)
+    cv2.imshow("image",image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
 def direc():
+    import os
     while True:
         nueva_ruta=input("Introduzca ruta: ")
         if os.path.isdir(nueva_ruta):
@@ -44,6 +64,10 @@ def n_val(n,tn): #FUNCION QUE INTEGRA "OKI" Y "OK".
         except:
             n=n_val(input("Caracter no valido: "),"f")
     return n
+
+#EJEMPLO
+#nu=n_val(input("Numero: "),"i")
+#print(nu)
 
 def ny(c):
     while c!=("n") and c!=("y"):
